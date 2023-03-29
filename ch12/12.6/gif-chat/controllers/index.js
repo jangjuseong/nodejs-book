@@ -1,5 +1,5 @@
 const Room = require('../schemas/room');
-const { removeRoom: removeRoomService } = require('../services'); 
+const { removeRoom: removeRoomService } = require('../services');
 
 exports.renderMain = async (req, res, next) => {
   try {

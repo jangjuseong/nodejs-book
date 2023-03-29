@@ -25,7 +25,8 @@ exports.createRoom = async (req, res, next) => {
     });
     const io = req.app.get('io');
     io.of('/room').emit('newRoom', newRoom);
-    if (req.body.password) { // 비밀번호가 있는 방이면
+    if (req.body.password) {
+      // 비밀번호가 있는 방이면
       res.redirect(`/room/${newRoom._id}?password=${req.body.password}`);
     } else {
       res.redirect(`/room/${newRoom._id}`);

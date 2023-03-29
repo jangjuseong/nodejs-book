@@ -7,16 +7,20 @@ const connect = () => {
   if (NODE_ENV !== 'production') {
     mongoose.set('debug', true);
   }
-  mongoose.connect(MONGO_URL, {
-    dbName: 'gifchat',
-    useNewUrlParser: true,
-  }, (error) => {
-    if (error) {
-      console.log('몽고디비 연결 에러', error);
-    } else {
-      console.log('몽고디비 연결 성공');
+  mongoose.connect(
+    MONGO_URL,
+    {
+      dbName: 'gifchat',
+      useNewUrlParser: true,
+    },
+    (error) => {
+      if (error) {
+        console.log('몽고디비 연결 에러', error);
+      } else {
+        console.log('몽고디비 연결 성공');
+      }
     }
-  });
+  );
 };
 
 mongoose.connection.on('error', (error) => {
